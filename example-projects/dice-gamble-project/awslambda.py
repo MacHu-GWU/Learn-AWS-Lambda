@@ -41,7 +41,7 @@ def explain(bowl):
     return terms
     
 def main(event, context):
-    """
+    """玩一个色子的游戏, 输入Event是用户在各个项目上的押注额, 返回丢色子的结果以及你的奖金。
     """
     odds = {
         "baozi": 24,

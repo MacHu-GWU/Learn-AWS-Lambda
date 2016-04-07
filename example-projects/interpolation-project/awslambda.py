@@ -154,7 +154,7 @@ def exam_reliability_by_datetime(
 
 
 def main(event, context):
-    """
+    """一个对时间序列进行线性插值的函数, 并且计算线性意义上的可信度。
     """
     timeAxis = event["timeAxis"]
     valueAxis = event["valueAxis"]
