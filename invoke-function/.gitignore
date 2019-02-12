@@ -1,7 +1,7 @@
 # User Settings
-learn_awslambda_venv/
-learn_awslambda.egg-info/
-learn_awslambda-*/
+learn_awslambda_invoke_function/
+learn_awslambda_invoke_function.egg-info/
+learn_awslambda_invoke_function-*/
 
 
 # Byte-compiled / optimized / DLL files
@@ -65,6 +65,9 @@ local_settings.py
 
 # Flask instance folder
 instance/
+
+# Serverless directories
+.serverless
 
 # Scrapy stuff:
 .scrapy

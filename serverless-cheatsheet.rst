@@ -1,0 +1,1 @@
+- ``serverless.yml`` for ``AWS Lambda`` full options: https://serverless.com/framework/docs/providers/aws/guide/serverless.yml/
