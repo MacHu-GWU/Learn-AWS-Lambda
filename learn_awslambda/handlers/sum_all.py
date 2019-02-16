@@ -4,5 +4,6 @@
 - Type: Request / Response
 """
 
+
 def handler(event, context):
     return sum(event["data"])

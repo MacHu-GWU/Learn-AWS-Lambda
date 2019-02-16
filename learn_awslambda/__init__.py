@@ -4,7 +4,8 @@
 Package Description.
 """
 
-__version__ = "0.0.1"
+from ._version import __version__
+
 __short_description__ = "Package short description."
 __license__ = "MIT"
 __author__ = "Sanhe Hu"

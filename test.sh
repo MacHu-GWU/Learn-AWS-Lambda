@@ -1,3 +1,3 @@
 #!/bin/bash
 
-echo "Hello World"
+bash ./bin/build-lbd-deploy-pkg
