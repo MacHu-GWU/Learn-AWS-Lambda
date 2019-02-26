@@ -2,7 +2,7 @@
 learn_awslambda_venv/
 learn_awslambda.egg-info/
 learn_awslambda-*/
-
+.serverless
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -70,7 +70,7 @@ instance/
 .scrapy
 
 # Sphinx documentation
-docs/_build/
+docs/build/
 
 # PyBuilder
 target/

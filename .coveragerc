@@ -1,10 +1,13 @@
 # Coverage.py is a tool for measuring code coverage of Python programs.
-# for more info: https://coverage.readthedocs.io/en/coverage-4.4.1/config.html
+# for more info: https://coverage.readthedocs.io/en/latest/config.html
 [run]
 omit =
+    learn_awslambda/_version.py
+    learn_awslambda/cli.py
     learn_awslambda/pkg/*
     learn_awslambda/docs/*
     learn_awslambda/tests/*
+    learn_awslambda/handlers/*
 
 [report]
 # Regexes for lines to exclude from consideration

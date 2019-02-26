@@ -3,36 +3,49 @@
 #
 # This script should be sourced to use.
 
-# 你要创建 3.6.8 版本的虚拟环境, 那么你必须得有一个基础的 3.6.8 版本的环境.
+
 # GitHub
-GITHUB_ACCOUNT="MacHu-GWU"
-GITHUB_REPO_NAME="learn_awslambda-project"
+github_account="MacHu-GWU"
+github_repo_name="learn_awslambda-project"
 
 
 # Python
-PACKAGE_NAME="learn_awslambda"
-PY_VER_MAJOR="3"
-PY_VER_MINOR="6"
-PY_VER_MICRO="2"
-USE_PYENV="Y" # "Y" or "N"
-SUPPORTED_PY_VERSIONS="2.7.13 3.6.2" # "2.7.13 3.6.2"
+package_name="learn_awslambda"
+py_ver_major="3"
+py_ver_minor="6"
+py_ver_micro="2"
+use_pyenv="Y" # "Y" or "N"
+supported_py_versions="3.6.2" # e.g: "2.7.13 3.6.2"
 
 
-#--- AWS
-AWS_PROFILE="sanhe" # aws profile in ~/.aws/credentials
+#--- Doc Build
+
+rtd_project_name="learn_awslambda"
+
+# AWS profile name for hosting doc on S3
+# should be defined in ~/.aws/credentials
+# read https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html for more information
+aws_profile_doc_host="sanhe"
 
 # html doc will be upload to:
 # "s3://${S3_BUCKET_DOC_HOST}/docs/${PACKAGE_NAME}/${PACKAGE_VERSION}"
-S3_BUCKET_DOC_HOST="sanherabbit.com"
+s3_bucket_doc_host="sanherabbit.com"
 
+
+#--- AWS Lambda
+# AWS profile name for deploy lambda function
+# should be defined in ~/.aws/credentials
+# read https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html for more information
+aws_profile_for_lambda="sanhe"
 
 # deployment package file will be upload to:
-# "s3://${S3_BUCKET_LAMBDA_DEPLOY}/lambda/${GITHUB_ACCOUNT}/${GITHUB_REPO_NAME}/${PACKAGE_NAME}-${PACKAGE_VERSION}.zip"
-S3_BUCKET_LAMBDA_DEPLOY="sanhe-learn-aws-lambda-with-sls-deploy"
+# "s3://${s3_bucket_lambda_deploy}/lambda/${github_account}/${github_repo_name}/${package_name}-${package_version}.zip"
+s3_bucket_lambda_deploy="sanhe-learn-aws-lambda-with-sls-deploy"
 
 
 # Docker
-DOCKER_IMAGE_FOR_BUILD="lambci/lambda:build-python3.6"
-DOCKER_IMAGE_FOR_RUN="lambci/lambda:python3.6"
-DIR_CONTAINER_WORKSPACE="/var/task"
-
+# deployment package will be built in this container
+docker_image_for_build="lambci/lambda:build-python3.6"
+# this container will be used for testing lambda invoke
+docker_image_for_run="lambci/lambda:python3.6"
+dir_container_workspace="/var/task"

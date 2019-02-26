@@ -55,6 +55,14 @@ Welcome to ``learn_awslambda`` Documentation
 Documentation for ``learn_awslambda``.
 
 
+Handy Continues Deploy
+------------------------------------------------------------------------------
+
+- ``make lbd-build-and-deploy-layer``
+
+
+
+
 .. _install:
 
 Install

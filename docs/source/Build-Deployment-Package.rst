@@ -36,3 +36,25 @@ Build Deployment Package in Container
 - 用 ``aws-cli`` 将打包上传至 S3
 
 这一系列行动可以用一个 shell script 脚本来完成.
+
+
+## Lambda Function 运维的关键技术
+
+
+### 多个 function 共享一份源代码
+
+不同的 function, 通常有不同的依赖. 老的办法是为每一个 function 单独开一个 repository, 配置一份 requirements.txt. 对于 serverless 架构的 App, 我们需要的 function 很可能上百. 管理 100 个 repository, 想象都心累.
+
+往往一个 service 下面的很多 function, 都会使用到一些共同的包. 为什么不把这些联系的比较紧密的 function 放在一个 repository 里, 然后把所有的 handler, 集中放在一个 package 里. 然后所有的 function 共用一套依赖包. **由于 python 是动态语言, 我们调用一个 handler 时, 没有用到的依赖并没有被 import 进来, 自然也不会占用内存和减慢启动时间了**.
+
+实际工程上, 可以把所有的 function 都放在 ``<repo_name>/<package_name>/handlers`` 这个目录下. 这个 ``<package_name>/handlers`` 本身也是个 importable sub package. 而里面的每一个 ``.py`` 文件就代表一个 function, 当然这里的每一个 function 都有一个同名函数 ``def handler(event, context):``
+
+具体的目录结构如下::
+
+    <repo_name>/<package_name>/handlers
+                                |-- __init__.py
+                                |-- <function_name1>.py
+                                |-- <function_name1>.py
+                                |-- ...
+
+在这种设计下, 我们只用维护一个 deployment package, 就能批量的部署所有function.
