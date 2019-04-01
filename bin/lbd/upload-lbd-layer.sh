@@ -8,5 +8,5 @@ dir_project_root=$(dirname "${dir_bin}")
 
 source ${dir_bin}/lbd/lambda-env.sh
 
-print_colored_line $color_cyan "[DOING] list all lambda functions in this project:"
-list_functions
+print_colored_line $color_cyan "[DOING] upload dependencies layer at ${path_lambda_layer_file}..."
+upload_lbd_dependencies_layer

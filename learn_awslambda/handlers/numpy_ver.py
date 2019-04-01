@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
-import numpy as np
+import json
 
 
 def handler(event, context):
-    return np.__version__
+    return json.dumps(event)

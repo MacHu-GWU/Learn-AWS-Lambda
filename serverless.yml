@@ -16,7 +16,7 @@ provider:
   deploymentBucket:
     name: sanhe-learn-aws-lambda-with-sls-deploy
   deploymentPrefix: serverless
-  role: arn:aws:iam::663351365541:role/learn_awslambda
+  role: arn:aws:iam::${env:LEARN_AWSLAMBDA}:role/learn_awslambda
   versionFunctions: false
 
 package:
@@ -27,14 +27,14 @@ functions:
     handler: learn_awslambda.handlers.numpy_ver.handler
     description:
     layers:
-      - arn:aws:lambda:us-east-1:663351365541:layer:learn_awslambda:4
+      - arn:aws:lambda:us-east-1:${env:LEARN_AWSLAMBDA}:layer:learn_awslambda:4
   pandas_ver:
     handler: learn_awslambda.handlers.pandas_ver.handler
     description:
     layers:
-      - arn:aws:lambda:us-east-1:663351365541:layer:learn_awslambda:4
+      - arn:aws:lambda:us-east-1:${env:LEARN_AWSLAMBDA}:layer:learn_awslambda:4
   sum_all:
     handler: learn_awslambda.handlers.sum_all.handler
     description:
     layers:
-      - arn:aws:lambda:us-east-1:663351365541:layer:learn_awslambda:4
+      - arn:aws:lambda:us-east-1:${env:LEARN_AWSLAMBDA}:layer:learn_awslambda:4

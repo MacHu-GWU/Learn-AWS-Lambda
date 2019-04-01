@@ -110,6 +110,8 @@ notebook: ## ** Run jupyter notebook
 
 info: ## ** Show information about python, pip in this environment
 	bash ./bin/py/info.sh
+
+
 #--- AWS Lambda ---
 lbd-build-deploy-pkg: ## Build lambda deployment package
 	bash ./bin/lbd/build-lbd-deploy-pkg.sh
@@ -135,6 +137,15 @@ lbd-deploy-layer: ## Deploy lambda dependencies layer
 	bash ./bin/lbd/deploy-lbd-layer.sh
 
 
+lbd-build-upload-deploy-layer:
+	bash ./bin/lbd/build-lbd-layer.sh
+	bash ./bin/lbd/upload-lbd-layer.sh
+	bash ./bin/lbd/deploy-lbd-layer.sh
+
+
+lbd-bud-layer: lbd-build-upload-deploy-layer ## Build, upload, deploy lambda dependencies layer
+
+
 lbd-deploy-all-func: lbd-build-source ## Deploy all lambda funtcions
 	bash ./bin/lbd/deploy-lbd-all-func.sh
 
@@ -145,5 +156,3 @@ lbd-ls-func: ## List all lambda functions in this project
 
 lbd-info: ## Display Lambda Relative Info
 	bash ./bin/lbd/info-lbd.sh
-
-
